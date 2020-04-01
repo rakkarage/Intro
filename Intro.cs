@@ -8,10 +8,7 @@ public class Intro : Control
 	private readonly float _duration = 1f;
 	public override void _Ready()
 	{
-		_player = new AudioStreamPlayer
-		{
-			Stream = ResourceLoader.Load<AudioStream>("res://Intro/PinDrop.wav")
-		};
+		_player = GetNode<AudioStreamPlayer>("Audio");
 		AddChild(_player);
 		var tween = new Tween();
 		tween.Connect("tween_all_completed", this, "OnTweenComplete");
