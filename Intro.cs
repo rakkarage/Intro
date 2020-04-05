@@ -9,7 +9,6 @@ public class Intro : Control
 	public override void _Ready()
 	{
 		_player = GetNode<AudioStreamPlayer>("Audio");
-		AddChild(_player);
 		var tween = new Tween();
 		tween.Connect("tween_all_completed", this, "OnTweenComplete");
 		AddChild(tween);
