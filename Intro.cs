@@ -29,12 +29,6 @@ public class Intro : Control
 		AddChild(timer);
 		timer.Start(.666f);
 	}
-	public void OnTimeout()
-	{
-		_player.Play();
-	}
-	public void OnTweenComplete()
-	{
-		QueueFree();
-	}
+	public void OnTimeout() => _player.Play();
+	public void OnTweenComplete() => QueueFree();
 }
