@@ -1,9 +1,9 @@
 extends Control
 
-const duration : float = 1.0
-const delay0 : float = 0.333
-const delay1 : float = 3.0
-const delay2 : float = 0.666
+const duration = 1.0
+const delay0 = 0.333
+const delay1 = 3.0
+const delay2 = 0.666
 
 func _ready():
 	$Tween.interpolate_property($Back, "color", Color8(59, 67, 82, 255), Color.black, duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, delay0)
