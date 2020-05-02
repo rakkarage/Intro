@@ -11,9 +11,9 @@ func _ready():
 	$Tween.interpolate_property($Texture, "rect_scale", Vector2.ONE, Vector2.ONE * 4, duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, delay0)
 	$Tween.interpolate_property($Fore, "color", Color(0, 0, 0, 0), Color.black, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay1)
 	$Tween.start()
-	$Tween.connect("tween_all_completed", self, "_on_Tween_tween_all_completed")
+	Utility.ok($Tween.connect("tween_all_completed", self, "_on_Tween_tween_all_completed"))
 	$Timer.start(delay2)
-	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	Utility.ok($Timer.connect("timeout", self, "_on_Timer_timeout"))
 
 func _on_Timer_timeout():
 	$Audio.play()
