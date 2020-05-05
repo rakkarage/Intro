@@ -15,15 +15,10 @@ func _ready():
 	$Timer.start(_delay2)
 	Utility.ok($Timer.connect("timeout", self, "_on_Timer_timeout"))
 
-func _on_Timer_timeout():
-	$Audio.play()
+func _on_Timer_timeout(): $Audio.play()
 
-func _input(event):
-	if event.is_pressed():
-		done()
+func _input(event): if event.is_pressed(): done()
 
-func _unhandled_input(_event):
-	done()
+func _unhandled_input(_event): done()
 
-func done():
-	queue_free()
+func done(): queue_free()
