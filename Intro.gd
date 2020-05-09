@@ -13,9 +13,9 @@ func _ready():
 	$Tween.start()
 	Utility.ok($Tween.connect("tween_all_completed", self, "done"))
 	$Timer.start(_delay2)
-	Utility.ok($Timer.connect("timeout", self, "_on_Timer_timeout"))
+	Utility.ok($Timer.connect("timeout", self, "_timeout"))
 
-func _on_Timer_timeout(): $Audio.play()
+func _timeout(): $Audio.play()
 
 func _input(event): if event.is_pressed(): done()
 
