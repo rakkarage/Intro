@@ -21,4 +21,6 @@ func _input(event): if event.is_pressed(): done()
 
 func _unhandled_input(_event): done()
 
-func done(): queue_free()
+func done():
+	get_tree().set_input_as_handled()
+	queue_free()
