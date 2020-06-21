@@ -23,11 +23,11 @@ func _ready() -> void:
 	yield(_timer, "timeout")
 	_audio.play()
 
-func _input(event) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_pressed():
 		_done()
 
-func _unhandled_input(_event) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	_done()
 
 func _done() -> void:
