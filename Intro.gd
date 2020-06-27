@@ -24,7 +24,7 @@ func _ready() -> void:
 	_audio.play()
 
 func _input(event: InputEvent) -> void:
-	if not event.pressed:
+	if event is InputEventMouseButton and not event.pressed:
 		_done()
 
 func _done() -> void:
