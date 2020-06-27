@@ -24,11 +24,8 @@ func _ready() -> void:
 	_audio.play()
 
 func _input(event: InputEvent) -> void:
-	if event.is_pressed():
+	if not event.pressed:
 		_done()
-
-func _unhandled_input(_event: InputEvent) -> void:
-	_done()
 
 func _done() -> void:
 	get_tree().set_input_as_handled()
