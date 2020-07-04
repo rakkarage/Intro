@@ -24,7 +24,7 @@ static func range(value: int, count: int) -> Array:
 		array.append(value + i)
 	return array
 
-static func repeat(value: int, count: int) -> Array:
+static func repeat(value, count: int) -> Array:
 	var array := []
 	for _i in range(count):
 		array.append(value)
