@@ -29,17 +29,3 @@ static func repeat(value, count: int) -> Array:
 	for _i in range(count):
 		array.append(value)
 	return array
-
-static func priority(d: Dictionary) -> Object:
-	var o
-	var total := 0
-	for value in d.values():
-		total += value
-	var selected := Random.next(total)
-	var current := 0
-	for key in d.keys():
-		o = key
-		current += d[key]
-		if current > selected:
-			break
-	return o
