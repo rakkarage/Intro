@@ -27,6 +27,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.pressed:
 		_done()
 
+func _unhandled_input(_event: InputEvent) -> void:
+	_done()
+
 func _done() -> void:
 	get_tree().set_input_as_handled()
 	queue_free()
