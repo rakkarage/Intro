@@ -18,7 +18,7 @@ func _ready() -> void:
 	_tween.interpolate_property(_texture, "rect_scale", Vector2.ONE, Vector2.ONE * 3, _duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, _delay0)
 	_tween.interpolate_property(_fore, "color", Color(0, 0, 0, 0), Color.black, _duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, _delay1)
 	_tween.start()
-	Utility.ok(_tween.connect("tween_all_completed", self, "_done"))
+	assert(_tween.connect("tween_all_completed", self, "_done") == OK)
 	_timer.start(_delay2)
 	yield(_timer, "timeout")
 	_audio.play()
