@@ -4,9 +4,7 @@
 [ext_resource path="res://Intro/Intro.gd" type="Script" id=2]
 [ext_resource path="res://Intro/262359__karomasa__pindrop.wav" type="AudioStream" id=3]
 
-[node name="Intro" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Intro" type="Node"]
 script = ExtResource( 2 )
 
 [node name="Back" type="ColorRect" parent="."]
