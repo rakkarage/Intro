@@ -2,34 +2,36 @@ extends Node
 
 const _duration = 1.0
 const _delay0 = 0.5
-const _delay1 = 3.0
+const _delay1 = 1.5
 const _delay2 = 0.8
 
-onready var _back:    = $Back
-onready var _texture: = $Texture
-onready var _fore:    = $Fore
-onready var _tween:   = $Tween
-onready var _timer:   = $Timer
-onready var _audio:   = $Audio
+@onready var _back:    = $Back
+@onready var _texture: = $Texture
+@onready var _fore:    = $Fore
+@onready var _audio:   = $Audio
+var _tween: Tween
 
 func _ready() -> void:
-	_tween.interpolate_property(_back, "color", Color8(59, 67, 82, 255), Color.black, _duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, _delay0)
-	_tween.interpolate_property(_texture, "rect_rotation", 0, 180, _duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, _delay0)
-	_tween.interpolate_property(_texture, "rect_scale", Vector2.ONE, Vector2.ONE * 3, _duration, Tween.TRANS_BOUNCE, Tween.EASE_OUT, _delay0)
-	_tween.interpolate_property(_fore, "color", Color(0, 0, 0, 0), Color.black, _duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, _delay1)
-	_tween.connect("tween_all_completed", self, "_done")
-	_tween.start()
-	_timer.start(_delay2)
-	yield(_timer, "timeout")
+	_tween = get_tree().create_tween()
+	_tween.tween_interval(_delay0)
+	_tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(_back, "color", Color.BLACK, _duration)
+	_tween.parallel().tween_property(_texture, "rotation", PI, _duration)
+	_tween.parallel().tween_property(_texture, "scale", Vector2.ONE * 3, _duration)
+	_tween.chain().tween_property(_fore, "color", Color.BLACK, _duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(_delay1)
+	_tween.tween_callback(self._done)
+	var timer = get_tree().create_timer(_delay2)
+	await timer.timeout
 	_audio.play()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.pressed:
 		_done()
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	_done()
 
 func _done() -> void:
-	get_tree().set_input_as_handled()
+	_tween.kill()
+	get_viewport().set_input_as_handled()
 	queue_free()
