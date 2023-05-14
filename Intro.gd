@@ -12,15 +12,15 @@ const _delay2 = 0.8
 var _tween: Tween
 
 func _ready() -> void:
-	_tween = get_tree().create_tween()
+	_tween = create_tween()
 	_tween.tween_interval(_delay0)
 	_tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_back, "color", Color.BLACK, _duration)
 	_tween.parallel().tween_property(_texture, "rotation", PI, _duration)
 	_tween.parallel().tween_property(_texture, "scale", Vector2.ONE * 3, _duration)
 	_tween.chain().tween_property(_fore, "color", Color.BLACK, _duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(_delay1)
-	_tween.tween_callback(self._done)
-	var timer = get_tree().create_timer(_delay2)
+	_tween.tween_callback(_done)
+	var timer := get_tree().create_timer(_delay2)
 	await timer.timeout
 	_audio.play()
 
