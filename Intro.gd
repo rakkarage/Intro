@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 const _duration = 1.0
 const _delay0 = 0.5
