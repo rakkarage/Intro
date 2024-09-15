@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwkeeiuo87ffy"]
+[gd_scene load_steps=5 format=3 uid="uid://dwkeeiuo87ffy"]
 
 [ext_resource type="Texture2D" uid="uid://bkd2k7j1juf3k" path="res://Intro/Henry.png" id="1"]
 [ext_resource type="Script" path="res://Intro/Intro.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://mlk4uhkaxadf" path="res://Intro/godot.png" id="2_uqttk"]
 [ext_resource type="AudioStream" uid="uid://di3xdhdji1ful" path="res://Intro/262359__karomasa__pindrop.wav" id="3"]
 
 [node name="Intro" type="Control"]
@@ -21,6 +22,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.231373, 0.262745, 0.321569, 1)
+
+[node name="Margin" type="MarginContainer" parent="Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBox" type="HBoxContainer" parent="Back/Margin"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Back/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="Back/Margin/HBox"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Back/Margin/HBox/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Godot" type="TextureRect" parent="Back/Margin/HBox/VBox"]
+layout_mode = 2
+texture = ExtResource("2_uqttk")
 
 [node name="Texture" type="TextureRect" parent="."]
 layout_mode = 1
