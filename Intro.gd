@@ -24,13 +24,10 @@ func _ready() -> void:
 	_audio.play()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and not event.pressed:
+	if event is InputEventMouseButton or event is InputEventScreenTouch or event is InputEventKey:
 		_done()
-
-func _unhandled_key_input(_event: InputEvent) -> void:
-	_done()
+	get_viewport().set_input_as_handled()
 
 func _done() -> void:
 	_tween.kill()
-	get_viewport().set_input_as_handled()
 	queue_free()
