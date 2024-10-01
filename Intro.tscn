@@ -23,36 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.231373, 0.262745, 0.321569, 1)
 
-[node name="Margin" type="MarginContainer" parent="Back"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="HBox" type="HBoxContainer" parent="Back/Margin"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="Back/Margin/HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBox" type="VBoxContainer" parent="Back/Margin/HBox"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="Back/Margin/HBox/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Godot" type="TextureRect" parent="Back/Margin/HBox/VBox"]
-layout_mode = 2
-texture = ExtResource("2_uqttk")
-
 [node name="Texture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -68,6 +38,21 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(59, 49)
 texture = ExtResource("1")
+
+[node name="Godot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_uqttk")
 
 [node name="Fore" type="ColorRect" parent="."]
 layout_mode = 1
